@@ -1,13 +1,13 @@
-"use client";  // เพิ่มบรรทัดนี้ที่ส่วนบนสุดของไฟล์ เพื่อให้เป็น Client-Side Component
+"use client"; 
 
 import React, { useState, useEffect } from "react";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
-import { useRouter } from "next/navigation"; // ใช้ useRouter จาก next/navigation แทน next/router
+import { useRouter } from "next/navigation"; 
 import app from "@/config";
 
 function Dashboard() {
   const auth = getAuth(app);
-  const router = useRouter();  // ตอนนี้ใช้ได้แล้ว
+  const router = useRouter();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
