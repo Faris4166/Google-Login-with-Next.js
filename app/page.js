@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import app from "@/config";
-import Dashboard from "@/app/dashboard/page";  // ตรวจสอบให้แน่ใจว่า Dashboard มีอยู่ใน path ที่ถูกต้อง
+import Dashboard from "@/app/dashboard/page"; 
 
 const Home = () => {
   const [user, setUser] = useState(null);
@@ -27,7 +27,7 @@ const Home = () => {
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider); // ใช้ signInWithPopup
+      await signInWithPopup(auth, provider);
       router.push("/dashboard");
     } catch (error) {
       console.error("Error signing in with Google:", error instanceof Error ? error.message : error);
@@ -40,7 +40,7 @@ const Home = () => {
         <Dashboard /> // ถ้ามี user, ไปที่หน้า Dashboard
       ) : (
         <button
-          onClick={signInWithGoogle}  // ปรับให้ถูกต้อง
+          onClick={signInWithGoogle}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Sign In with Google
